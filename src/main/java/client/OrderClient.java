@@ -7,7 +7,7 @@ import pojo.Order;
 public class OrderClient extends BaseClient {
 
     @Step("Заказ без авторизации")
-    public Response withoutAuth(Order order) {
+    public Response createWithoutAuth(Order order) {
         Response response = getSpec()
                 .and()
                 .body(order)
@@ -18,7 +18,7 @@ public class OrderClient extends BaseClient {
     }
 
     @Step("Заказ без ингредиентов")
-    public Response withoutIngr() {
+    public Response createWithoutIngr() {
         Response response = getSpec()
                 .when()
                 .post(ORDERS);
@@ -27,15 +27,35 @@ public class OrderClient extends BaseClient {
     }
 
     @Step("Заказ с авторизацией")
-    public Response withAuth(String accessToken, Order order) {
+    public Response createWithAuth(String accessToken, Order order) {
         Response response = getSpec()
                 .header("Authorization", accessToken)
                 .and()
                 .body(order)
                 .when()
                 .post(ORDERS);
-         addToReport(order, response);
-         return response;
+        addToReport(order, response);
+        return response;
     }
+
+    @Step("Получение заказов пользователя с авторизацией")
+    public Response getWithAuth(String accessToken) {
+        Response response = getSpec()
+                .header("Authorization", accessToken)
+                .when()
+                .get(ORDERS);
+        addToReport(response);
+        return response;
+    }
+
+    @Step("Получение заказов пользователя без авторизации")
+    public Response getWithoutAuth() {
+        Response response = getSpec()
+                .when()
+                .get(ORDERS);
+        addToReport(response);
+        return response;
+    }
+
 
 }

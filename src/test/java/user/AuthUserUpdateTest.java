@@ -11,26 +11,20 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pojo.User;
+import setup.Setup;
 
 import static org.hamcrest.Matchers.is;
 
 @DisplayName("Изменение данных пользователя")
-public class AuthUserUpdateTest {
+public class AuthUserUpdateTest extends Setup {
 
-    private User user;
     private User userUpdData;
     private String accessToken;
-    private UserClient userClient;
-    private int expStatusCode;
     private static final String AUTHORIZED_401 = "You should be authorised";
 
     @Before
     public void setUp() {
-        userClient = new UserClient();
-        user = User.createRandom();
-        userClient.register(user)
-                .then()
-                .statusCode(200);
+        registerTestUser();
         accessToken = userClient.getAccessToken(user);
     }
 
@@ -82,9 +76,7 @@ public class AuthUserUpdateTest {
     }
 
     @After
-    public void deleteUser() {
-        userClient.delete(accessToken)
-                .then()
-                .statusCode(202);
+    public void deleteData() {
+        deleteUser();
     }
 }

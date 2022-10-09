@@ -11,19 +11,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pojo.User;
+import setup.Setup;
 
 import static org.hamcrest.Matchers.is;
 
 @DisplayName("Создание пользователя")
-public class AuthRegisterTest {
+public class AuthRegisterTest extends Setup {
 
     private static final String EXISTS_403 = "User already exists";
     private static final String REQUIRED_403 = "Email, password and name are required fields";
-
-    private User user;
-    private UserClient userClient;
-    private String accessToken;
-    private int expStatusCode;
 
     @Before
     public void setUp() {
@@ -101,13 +97,8 @@ public class AuthRegisterTest {
     }
 
     @After
-    public void deleteUser() {
-        if (accessToken != null) {
-            userClient.delete(accessToken)
-                    .then()
-                    .statusCode(202);
-        }
-        accessToken = null;
+    public void deleteData() {
+        deleteUser();
     }
 
 }
