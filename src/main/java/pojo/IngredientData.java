@@ -1,5 +1,6 @@
 package pojo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,13 +9,14 @@ public class IngredientData {
 
     @Getter
     @Setter
-    private String _id;
+    @JsonProperty("_id")
+    private String id;
 
     public IngredientData() {
     }
 
-    public IngredientData(String _id) {
-        this._id = _id;
+    public IngredientData(String id) {
+        this.id = id;
     }
 
 }

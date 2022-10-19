@@ -19,7 +19,7 @@ public class IngredientClient extends BaseClient {
                 .body()
                 .as(Ingredients.class);
         for (IngredientData data : ingr.getData())
-            indgredientIds.add(data.get_id());
+            indgredientIds.add(data.getId());
         return indgredientIds;
     }
 }
