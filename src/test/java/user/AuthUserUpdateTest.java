@@ -1,11 +1,5 @@
-/*Изменение данных пользователя:
-с авторизацией,
-без авторизации,
-Для обеих ситуаций нужно проверить, что любое поле можно изменить. Для неавторизованного пользователя — ещё и то, что система вернёт ошибку.*/
-
 package user;
 
-import client.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
