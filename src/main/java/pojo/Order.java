@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Order {
 
-    public List<String> ingredients = null;
+    public List<String> ingredients;
 
     public Order() {
     }
