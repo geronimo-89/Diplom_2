@@ -1,3 +1,6 @@
 /.allure/
 /.idea/
-/target/
+!/target/
+/target/**
+!/target/allure-results
+/src/main/resources/api-documentation.pdf

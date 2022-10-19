@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "orders": [
+        {
+            "_id": "63434bc5c161da001b7707b5",
+            "ingredients": [
+                "61c0c5a71d1f82001bdaaa6d",
+                "61c0c5a71d1f82001bdaaa75",
+                "61c0c5a71d1f82001bdaaa73"
+            ],
+            "status": "done",
+            "name": "Space флюоресцентный антарианский бургер",
+            "createdAt": "2022-10-09T22:31:33.583Z",
+            "updatedAt": "2022-10-09T22:31:33.802Z",
+            "number": 24448
+        }
+    ],
+    "total": 24074,
+    "totalToday": 63
+}
